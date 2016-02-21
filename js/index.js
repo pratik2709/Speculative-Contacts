@@ -467,6 +467,7 @@ Ball.prototype.reset = function() {
   this.vel = new Vector2();
 }
 
+//http://math.stackexchange.com/questions/127613/closest-point-on-circle-edge-from-point-outside-inside-the-circle
 Ball.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
   var ballA = this;
