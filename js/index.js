@@ -228,6 +228,7 @@ Vector2.prototype.clamp = function( minVec, maxVec ) {
 * @param {Number} theta
 */
 
+//clockwise rotation
 Vector2.prototype.rotate = function(theta) {
   var rotatedX = this.x * Math.cos(theta) - this.y * Math.sin(theta);
   var rotatedY = this.x * Math.sin(theta) + this.y * Math.cos(theta);
