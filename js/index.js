@@ -382,6 +382,7 @@ Floor.prototype.debugDraw = function(ctx) {
 
 }
 
+https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=closest+points+rotating+rectangle+circle
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
 
