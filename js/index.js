@@ -417,6 +417,7 @@ Floor.prototype.getClosestPoints = function(rBody) {
     //console.log(rotatedVector.x + ', ' + rotatedVector.y);
 
     //clamp: to constrain to a set of values
+    //clamp: get a point on the rectangle or inside it (if overlap exists)
     // why do we clamp ?
     //how does clamp work ?
 
@@ -424,8 +425,11 @@ Floor.prototype.getClosestPoints = function(rBody) {
     //thus we can find distance between 2 circles
     var dClamped = rotatedVector.clamp(this.halfExtendMinus, this.halfExtendPlus);
 
-    //why rotate again
+    //why rotate again?
+    // it was first rotated counter clockwise then clockwise
     var clamped  = dClamped.rotate(this.theta);
+
+    // why add clamped vector to position of rectangle?
     var clamedP = this.pos.copy().add(clamped);
 
 
@@ -434,6 +438,8 @@ Floor.prototype.getClosestPoints = function(rBody) {
     var n = d.getNormal();
 
     var pa = clamedP;
+
+
     var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, n);
     //console.log(pb.x + ", " + pb.y);
 
