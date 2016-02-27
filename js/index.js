@@ -385,7 +385,8 @@ Floor.prototype.debugDraw = function(ctx) {
 // Rotation vector:
 // r(theta) = [cos(theta) -sin(theta)/ sin(theta) cos(theta)]
 // r(-theta) = [cos(theta) sin(theta)/ -sin(theta) cos(theta)]
-https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=closest+points+rotating+rectangle+circle
+//https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=closest+points+rotating+rectangle+circle
+//http://www.wildbunny.co.uk/blog/vector-maths-a-primer-for-games-programmers/matrices/#TransformPointInto
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
 
@@ -394,13 +395,17 @@ Floor.prototype.getClosestPoints = function(rBody) {
     var ballB      = rBody;
 
     // find the vector
+    //between the circle and the rectangle
     var xPos = ballB.pos.x - rectangelA.pos.x;
     var yPos = ballB.pos.y - rectangelA.pos.y;
     var delta = new Vector2();
     delta.set(xPos, yPos);
     //console.log(delta.x + ", " + delta.y);
 
-    //rotate the vector
+    //rotate the vector between circle and rectangle
+    // why rotate??
+    //convert the circle center (point to a vector) and rotate (you cannot rotate a point)
+    //this is called converting the circle to the space of the rotated rectangle
     this.matrix.set(this.theta, 0, 0);
     var rotatedDeltaX =  delta.x * this.matrix.cos + delta.y * this.matrix.sin;
     var rotatedDeltaY = -delta.x * this.matrix.sin + delta.y * this.matrix.cos;
