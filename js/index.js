@@ -382,6 +382,9 @@ Floor.prototype.debugDraw = function(ctx) {
 
 }
 
+// Rotation vector:
+// r(theta) = [cos(theta) -sin(theta)/ sin(theta) cos(theta)]
+// r(-theta) = [cos(theta) sin(theta)/ -sin(theta) cos(theta)]
 https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=closest+points+rotating+rectangle+circle
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
@@ -390,12 +393,14 @@ Floor.prototype.getClosestPoints = function(rBody) {
     var rectangelA = this;
     var ballB      = rBody;
 
+    // find the vector
     var xPos = ballB.pos.x - rectangelA.pos.x;
     var yPos = ballB.pos.y - rectangelA.pos.y;
     var delta = new Vector2();
     delta.set(xPos, yPos);
     //console.log(delta.x + ", " + delta.y);
 
+    //rotate the vector
     this.matrix.set(this.theta, 0, 0);
     var rotatedDeltaX =  delta.x * this.matrix.cos + delta.y * this.matrix.sin;
     var rotatedDeltaY = -delta.x * this.matrix.sin + delta.y * this.matrix.cos;
@@ -404,6 +409,7 @@ Floor.prototype.getClosestPoints = function(rBody) {
     rotatedVector.set(rotatedDeltaX, rotatedDeltaY);
     //console.log(rotatedVector.x + ', ' + rotatedVector.y);
 
+    //clamp: to constrain to a set of values
     var dClamped = rotatedVector.clamp(this.halfExtendMinus, this.halfExtendPlus);
 
     var clamped  = dClamped.rotate(this.theta);
