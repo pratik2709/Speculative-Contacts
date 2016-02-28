@@ -421,15 +421,40 @@ Floor.prototype.getClosestPoints = function(rBody) {
     // why do we clamp ?
     //how does clamp work ?
 
+    //clamp limits the value in the range of min ... max
+
     //This helps to center another imaginary circle at the box center passing through clamped point
     //thus we can find distance between 2 circles
     var dClamped = rotatedVector.clamp(this.halfExtendMinus, this.halfExtendPlus);
 
     //why rotate again?
     // it was first rotated counter clockwise then clockwise
+    // is getting back to the world space from object space ?
     var clamped  = dClamped.rotate(this.theta);
 
     // why add clamped vector to position of rectangle?
+    // again is this a part of getting back to the world space ?
+    //http://www.wildbunny.co.uk/blog/vector-maths-a-primer-for-games-programmers/matrices/#TransformPointInto
+
+    /*
+        http://gamedev.stackexchange.com/questions/79765/how-do-i-convert-from-the-global-coordinate-space-to-a-local-space
+        You need to know the pose of Entity A in the global space (x1,y1,θ), where θ is the orientation relative to the x axis.
+
+        To convert the EntityB location from a global coordinate (x2,y2) to a local coordinate (x2',y2'):
+
+        Using expressions
+        Global to Local
+
+        x2' = (x2-x1)cosθ + (y2-y1)sinθ
+
+        y2' = -(x2-x1)sinθ + (y2-y1)cosθ
+        Local to Global
+
+        x2 = x2'cosθ - y2'sinθ + x1
+
+        y2 = x2'sinθ + y2'cosθ + y1
+
+    */
     var clamedP = this.pos.copy().add(clamped);
 
 
