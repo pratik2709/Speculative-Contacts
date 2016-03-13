@@ -388,6 +388,7 @@ Floor.prototype.debugDraw = function(ctx) {
 //https://www.google.co.in/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=closest+points+rotating+rectangle+circle
 //http://www.wildbunny.co.uk/blog/vector-maths-a-primer-for-games-programmers/matrices/#TransformPointInto
 //http://gamedev.stackexchange.com/questions/47261/confusing-with-an-articles-wording-on-clamping-a-vector2
+//http://answers.unity3d.com/questions/31169/explanation-local-vs-global-space.html
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
 
