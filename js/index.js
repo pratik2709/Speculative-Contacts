@@ -389,6 +389,7 @@ Floor.prototype.debugDraw = function(ctx) {
 //http://www.wildbunny.co.uk/blog/vector-maths-a-primer-for-games-programmers/matrices/#TransformPointInto
 //http://gamedev.stackexchange.com/questions/47261/confusing-with-an-articles-wording-on-clamping-a-vector2
 //http://answers.unity3d.com/questions/31169/explanation-local-vs-global-space.html
+//http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
 
