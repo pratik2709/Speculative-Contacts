@@ -458,19 +458,25 @@ Floor.prototype.getClosestPoints = function(rBody) {
         y2 = x2'sinθ + y2'cosθ + y1
 
     */
+
+    //assuming this means finding the point on the OBB
     var clamedP = this.pos.copy().add(clamped);
 
 
     var d = new Vector2();
     d.set( ballB.pos.x - clamedP.x, ballB.pos.y - clamedP.y );
+
+    // n is a new vector with magnitude 1 and in direction from the point on OBB to the ball
     var n = d.getNormal();
 
+    //pa is the final point on the OBB
     var pa = clamedP;
 
-
+    //pb is a vector (between OBB and the contact point of the ball)
     var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, n);
     //console.log(pb.x + ", " + pb.y);
 
+    //from OBB to center of circle length minus the radius will give us the distance between the 2 colliding objects
     var dist = d.getLength() - ballB.radius;
 
 
