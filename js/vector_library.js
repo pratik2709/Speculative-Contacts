@@ -7,6 +7,11 @@ var speculativeContacts = (function (run) {
 
         };
 
+        Vector.prototype.set = function(x, y) {
+            this.x = x;
+            this.y = y;
+        };
+
         Vector.prototype.subtract_vectors = function(v) {
             this.x -= v.x;
             this.y -= v.y;

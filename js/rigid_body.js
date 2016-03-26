@@ -24,6 +24,8 @@ var speculativeContacts = (function (run) {
             this.position.x = this.velocity.x * dt;
             this.position.y = this.velocity.y * dt;
 
+            this.force.set(0,0)
+
         };
 
         return {
