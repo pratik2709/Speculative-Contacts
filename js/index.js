@@ -391,6 +391,7 @@ Floor.prototype.debugDraw = function(ctx) {
 //http://answers.unity3d.com/questions/31169/explanation-local-vs-global-space.html
 //http://www.wildbunny.co.uk/blog/2011/04/20/collision-detection-for-dummies/
 //http://www.wildbunny.co.uk/blog/vector-maths-a-primer-for-games-programmers/rotation/
+// 3D Primer book: contains intutive explaination for converting from object to world space
 Floor.prototype.getClosestPoints = function(rBody) {
   var contacts = [];
 
