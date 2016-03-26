@@ -7,7 +7,13 @@ var speculativeContacts = (function (run) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
+        var CONSTANTS = {
+            gravity: 10,
+            timeStep: 1 / 30
+        };
+
         return {
+            CONSTANTS: CONSTANTS
         }
 
     })();

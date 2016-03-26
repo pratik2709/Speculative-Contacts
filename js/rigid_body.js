@@ -28,6 +28,14 @@ var speculativeContacts = (function (run) {
 
         };
 
+        rigidBody.prototype.setGravity = function () {
+            this.force.y += this.mass * run.main.CONSTANTS.gravity;
+        };
+
+        RigidBody.prototype.getClosestPoints = function (rb) {
+            console.error("===== NO getClosestPoints IN RigidBody =====");
+        };
+
         return {
             rigidBody: rigidBody
         }
