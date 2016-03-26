@@ -636,6 +636,8 @@ Contact.prototype = {
 var numInteraction = 2;
 var solveType;
 
+//what is relative normal velocity?
+//
 var solver = function(contacts) {
     for (var jj = 0; jj < numInteraction; jj++) {
         for (var ii = 0; ii < contacts.length; ii++) {
