@@ -10,7 +10,14 @@ var speculativeContacts = (function (run) {
         Vector.prototype.set = function(x, y) {
             this.x = x;
             this.y = y;
+            return this;
         };
+
+        Vector.prototype.dot = function(v) {
+            return this.x * v.x + this.y + v.y
+        };
+
+        //Vector.prototype.lengthSquare()
 
         Vector.prototype.subtract_vectors = function(v) {
             this.x -= v.x;
