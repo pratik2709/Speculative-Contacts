@@ -184,6 +184,9 @@ Vector2.prototype.getNormal = function () {
  * @param {Vector2} minVec
  * @return {Vector2}
  */
+//*****controversial*****
+//https://www.grc.nasa.gov/www/k-12/airplane/vectcomp.html
+//maybe clamping function is dependent on this ?
 
 Vector2.prototype.min = function (minVec) {
     if (this.x > minVec.x) this.x = minVec.x;
@@ -214,9 +217,12 @@ Vector2.prototype.max = function (maxVec) {
  * @param {Vector2} minVec
  * @param {Vector2} maxVec
  */
+
+//clamping merely moves the point to the nearest available value.
+
 Vector2.prototype.clamp = function (minVec, maxVec) {
     return this.max(minVec).min(maxVec);
-}
+};
 
 /**
  * @function

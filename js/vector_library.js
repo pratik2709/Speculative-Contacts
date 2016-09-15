@@ -53,6 +53,33 @@ Vector2.prototype.getLength = function () {
     return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
+Vector2.prototype.getNormal = function () {
+    var length = this.getLength();
+    return new Vector2(this.x / length, this.y / length);
+};
+
+
+
+Vector2.prototype.min = function (minVec) {
+    if (this.x > minVec.x) this.x = minVec.x;
+    if (this.y > minVec.y) this.y = minVec.y;
+
+    return this;
+};
+
+
+Vector2.prototype.max = function (maxVec) {
+    if (this.x < maxVec.x) this.x = maxVec.x;
+    if (this.y < maxVec.y) this.y = maxVec.y;
+
+    return this;
+};
+
+Vector2.prototype.clamp = function (minVec, maxVec) {
+    return this.max(minVec).min(maxVec);
+};
+
+
 
 
 
