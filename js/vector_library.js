@@ -79,7 +79,16 @@ Vector2.prototype.clamp = function (minVec, maxVec) {
     return this.max(minVec).min(maxVec);
 };
 
+Vector2.prototype.rotate = function (theta) {
+    var rotatedX = this.x * Math.cos(theta) - this.y * Math.sin(theta);
+    var rotatedY = this.x * Math.sin(theta) + this.y * Math.cos(theta);
 
+    return this.set(rotatedX, rotatedY)
+};
+
+Vector2.prototype.dotProduct = function (vec) {
+    return this.x * vec.x + this.y * vec.y;
+};
 
 
 
