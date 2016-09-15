@@ -270,7 +270,7 @@ Matrix.prototype = {
 
 // =============================
 
-
+// no deformation to the body
 var RigidBody = function (mass, width, height, pos, vel) {
     //if(!instanceOf velVector) this.velVector =
     this.mass = mass;
