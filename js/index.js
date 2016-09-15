@@ -294,11 +294,18 @@ var RigidBody = function (mass, width, height, pos, vel) {
 // force is mass into acceleration
 // should'nt velocity be acceleration?
 /*
- It you apply a constant force (over time) to a mass, you get a constant acceleration. This is a pretty intuitive result, most feel.
+ It you apply a constant force (over time) to a mass, you get a constant acceleration.
+ This is a pretty intuitive result, most feel.
 
- The whole "with respect of time" is ignored unless you have a force that varies over time, which you don't in most simple solutions of kinematics.
+ The whole "with respect of time" is ignored unless you have a force that varies over time,
+ which you don't in most simple solutions of kinematics.
 
- Now, if you are looking at the velocity, that DOES change over time. A constant force is going to produce a growing velocity. This is obvious if you start an object with zero velocity and start applying a force. In fact, how else are you going to get the velocity to change? Force applied over time is the only way that velocity can change, and it will do so over the same time the force is applied.
+ Now, if you are looking at the velocity, that DOES change over time.
+ A constant force is going to produce a growing velocity.
+  This is obvious if you start an object with zero velocity and start applying a force.
+  In fact, how else are you going to get the velocity to change?
+ Force applied over time is the only way that velocity can change,
+ and it will do so over the same time the force is applied.
  */
 
 RigidBody.prototype.update = function (dt) {
