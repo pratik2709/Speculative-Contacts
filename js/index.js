@@ -349,6 +349,8 @@ var Floor = function (x, y, wid, hig) {
     this.theta = 0;
     this.matrix = new Matrix();
     this.matrix.set(this.theta, 0, 0);
+
+    //not explained clearly
     this.halfExtendMinus = new Vector2(-wid / 2, -hig / 2);
     this.halfExtendPlus = new Vector2(wid / 2, hig / 2);
 }
