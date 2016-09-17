@@ -17,3 +17,12 @@ Floor.prototype.setVelTheta = function (val) {
     this.thetaVelocity = val;
 };
 
+Floor.prototype.update = function(){
+    this.theta += this.thetaVelocity;  
+    this.matrix.set(this.theta, 0, 0);
+};
+
+//Floor.prototype.draw = function (ctx) {
+//    ctx.save();
+//}
+

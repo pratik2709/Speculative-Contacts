@@ -363,6 +363,7 @@ Floor.prototype.setVelTheta = function (val) {
 }
 
 Floor.prototype.update = function () {
+    // understand only when used
     this.theta += this.thetaVelocity;
     this.matrix.set(this.theta, 0, 0);
 }
@@ -373,8 +374,11 @@ Floor.prototype.draw = function (ctx) {
 
     ctx.strokeStyle = "#000000";
     ctx.beginPath();
+
+    //change position and rotate
     ctx.translate(this.pos.x, this.pos.y);
     ctx.rotate(this.theta);
+
     ctx.strokeRect(-this.width / 2, -this.height / 2, this.width, this.height);
 
     ctx.restore();
