@@ -219,7 +219,8 @@ Vector2.prototype.max = function (maxVec) {
  */
 
 //clamping merely moves the point to the nearest available value.
-
+// does the order matter????? --NO it will give the same value
+// tried practically
 Vector2.prototype.clamp = function (minVec, maxVec) {
     return this.max(minVec).min(maxVec);
 };
@@ -439,6 +440,11 @@ Floor.prototype.getClosestPoints = function (rBody) {
         //convert the circle center (point to a vector) and rotate (you cannot rotate a point)
         //this is called converting the circle to the space of the rotated rectangle
         //so we actually rotate the circle point instead of the rectangle
+
+        //http://gamedev.stackexchange.com/questions/79765/how-do-i-convert-from-the-global-coordinate-space-to-a-local-space
+        //inverse of rotation matrix is equal to transpose
+        //get the relative vector, then rotate that by the inverse of EntityA's angle.
+        // how to decide which way to rotate?????
         this.matrix.set(this.theta, 0, 0);
         var rotatedDeltaX = delta.x * this.matrix.cos + delta.y * this.matrix.sin;
         var rotatedDeltaY = -delta.x * this.matrix.sin + delta.y * this.matrix.cos;

@@ -36,5 +36,45 @@ Floor.prototype.draw = function (ctx) {
     ctx.restore();
 };
 
+Floor.prototype.getClosestPoints = function (rBody) {
+
+    var contacts = [];
+
+    if(rBody instanceof  Ball){
+        var rectangleA = this;
+        var ballB = rBody;
+
+        var xPos = ballB.pos.x - rectangleA.pos.x;
+        var yPos = ballB.pos.y - rectangleA.pos.y;
+
+        var delta = new Vector2();
+        delta.set(xPos, yPos);
+
+        this.matrix.set(this.theta, 0, 0);
+        var rotatedDeltaX = delta.x*this.matrix.cos + delta.y*this.matrix.sin;
+        var rotatedDeltaY = -delta.x*this.matrix.sin + delta.y*this.matrix.cos;
+
+        var rotatedVector = new Vector2();
+        rotatedVector.set(rotatedDeltaX, rotatedDeltaY);
+
+        var dClamped = rotatedVector.clamp(this.halfExtendMinus, this.halfExtendPlus);
+
+        //getting back to worldspace
+        var clamped = dClamped.rotate(this.theta);
+        var clampedP = this.pos.copy().add(clamped);
+
+        var pa = clampedP;
+
+
+
+
+
+
+
+
+
+    }
+
+};
 
 
