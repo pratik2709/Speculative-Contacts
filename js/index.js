@@ -422,6 +422,7 @@ Floor.prototype.debugDraw = function (ctx) {
 Floor.prototype.getClosestPoints = function (rBody) {
     var contacts = [];
 
+    //only ball is considered since only that will come in contact with the ball
     if (rBody instanceof Ball) {
         var rectangelA = this;
         var ballB = rBody;

@@ -22,7 +22,19 @@ Floor.prototype.update = function(){
     this.matrix.set(this.theta, 0, 0);
 };
 
-//Floor.prototype.draw = function (ctx) {
-//    ctx.save();
-//}
+Floor.prototype.draw = function (ctx) {
+    ctx.save();
+    ctx.strokeStyle = "#000000";
+    ctx.beginPath();
+
+    //change position and rotate
+    ctx.translate(this.pos.x, this.pos.y);
+    ctx.rotate(this.theta);
+
+    ctx.strokeRect(-this.width / 2, -this.height / 2, this.width, this.height);
+
+    ctx.restore();
+};
+
+
 
