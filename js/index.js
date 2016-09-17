@@ -254,7 +254,8 @@ Vector2.prototype.dotProduct = function (vec) {
 }
 
 // =============================
-
+//assuming this not actually matrix
+//just familiar with the params
 function Matrix() {
     this.cos = 0.0;
     this.sin = 0.0;
