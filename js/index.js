@@ -553,6 +553,8 @@ Ball.prototype.draw = function (ctx) {
     ctx.fill();
 
 
+    // random values presented here
+    // not analysing
     if (this.pos.x > window.innerWidth + this.radius * 2 || this.pos.x < 0 - this.radius * 2 || this.pos.y + this.radius * 2 > window.innerHeight + this.rad * 2) {
         this.reset();
     }
