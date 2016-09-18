@@ -65,15 +65,23 @@ Floor.prototype.getClosestPoints = function (rBody) {
 
         var pa = clampedP;
 
+        var d = new Vector2();
+        d.set(ballB.pos.x - clamped.x, ballB.pos.y - clamped.y);
 
+        var n = d.getNormal();
+        var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, n);
 
+        var dist = d.getLength() - ballB.radius;
 
+        this.clamedP = clamedP;
+        this.d = d;
+        this.pb = pb;
 
-
-
-
+        contacts.push(new Contact(rectangleA, ballB, pa, pb, n, dist));
 
     }
+
+    return contacts;
 
 };
 

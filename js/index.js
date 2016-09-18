@@ -497,7 +497,7 @@ Floor.prototype.getClosestPoints = function (rBody) {
         //assuming this means finding the point on the OBB
         var clamedP = this.pos.copy().add(clamped);
 
-
+        //d seems to be a vector from the clamped point on the OBB to the center of the circle
         var d = new Vector2();
         d.set(ballB.pos.x - clamedP.x, ballB.pos.y - clamedP.y);
 
@@ -508,6 +508,7 @@ Floor.prototype.getClosestPoints = function (rBody) {
         var pa = clamedP;
 
         //pb is a vector (between OBB and the contact point of the ball)
+        // this actaully a position minus a vector
         var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, n);
         //console.log(pb.x + ", " + pb.y);
 
