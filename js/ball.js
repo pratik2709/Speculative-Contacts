@@ -29,6 +29,12 @@ Ball.prototype.getClosestPoints = function(rBody){
     var ballA = this;
 
     if(rBody instanceof  Ball){
+        var ballB = rBody;
+
+        var delta = new Vector2(ballB.pos.x - ballA.pos.x, ballB.pos.y - ballA.pos.y);
+
+        var n;
+
 
     }
 };

@@ -629,6 +629,7 @@ var utils = {
             contacts[ii].mPb = contacts[ii].mPa;
             contacts[ii].mPa = tempMPb;
 
+            //why multiply by -1
             contacts[ii].mNormal.x *= -1;
             contacts[ii].mNormal.y *= -1;
         }
@@ -646,6 +647,7 @@ var utils = {
  *   @param {Vector2} pb
  *   @param {Vector2} n
  *   @param {Number} dist
+ *   //distance between 2 objects
  */
 var Contact = function (A, B, pa, pb, n, dist) {
     this.mA = A;
