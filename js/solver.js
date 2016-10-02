@@ -23,11 +23,17 @@ var solver = function (contacts) {
 
 };
 
+//http://www.euclideanspace.com/physics/dynamics/collision/
+//http://www.euclideanspace.com/physics/dynamics/collision/oned/index.htm
+//https://gamedevelopment.tutsplus.com/tutorials/how-to-create-a-custom-2d-physics-engine-the-basics-and-impulse-resolution--gamedev-6331
 function speculativeSolver(con, n, relNv){
     var remove = relNv + con.mDist / CONSTANTS.timeStep;
 
     if(remove < 0){
+        var mag = remove/(con.mA.invMass + con.mB.invMass);
+        var imp = con.mNormal.copy().multiply(mag);
 
+        con.applyImpluses(imp);
     }
 }
 

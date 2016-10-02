@@ -691,6 +691,7 @@ var solver = function (contacts) {
     }
 }
 
+//http://www.euclideanspace.com/physics/dynamics/collision/
 function speculativeSolver(con, n, relNv) {
     var remove = relNv + con.mDist / CONSTANTS.timeStep;
 
