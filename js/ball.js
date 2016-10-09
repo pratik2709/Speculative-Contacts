@@ -35,6 +35,35 @@ Ball.prototype.getClosestPoints = function(rBody){
 
         var n;
 
+        if(delta.getLength()){
+            n = delta.getNormal();
+        }
+        else {
+            n = new Vector2(1, 0);
+        }
+
+        var pa = new Vector2();
+        pa.x = ballA.pos.x + n.x * ballA.radius;
+        pa.y = ballA.pos.y + n.y * ballA.radius;
+
+        var pb = new Vector2();
+        pb.x = ballB.pos.x - n.x * ballA.radius;
+        pb.y = ballB.pos.y - n.y * ballA.radius;
+
+        var dist = delta.getLength() - (ballA.radius + ballB.radius);
+
+        contacts.push(new Contact(ballA, ballB, pa, pb, n, dist));
 
     }
+    else if(rBody instanceof Floor){
+        var rectangleB = rBody;
+
+        contacts = rectangleB.getClosestPoints(this);
+        utils.flipContacts(contacts);
+
+    } else {
+        console.error("===== NO getClosestPoints IN Ball =====");
+    }
+
+    return contacts;
 };
