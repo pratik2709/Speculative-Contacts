@@ -23,10 +23,10 @@ window.onload = function () {
 
 
     var floor1 = new Floor(window.innerWidth / 2 - wid / 2 + wid, window.innerHeight / 5 * 2.5 - hig / 2, wid, hig);
-    floor1.setVelTheta(-1 / 60 * Math.PI);
+    floor1.setVelTheta(-5 / 60 * Math.PI);
 
     var floor3 = new Floor(window.innerWidth / 2 - wid / 2 - wid, window.innerHeight / 5 * 2.5 - hig / 2, wid, hig);
-    floor3.setVelTheta(1 / 60 * Math.PI);
+    floor3.setVelTheta(5 / 60 * Math.PI);
 
     //var floor2 = new Floor(window.innerWidth / 2 - wid / 2, window.innerHeight / 5 * 3. - hig / 2 + 30, wid, hig);
     //floor2.setVelTheta(1 / 30 * Math.PI);
@@ -43,8 +43,8 @@ window.onload = function () {
 
 function loop() {
     for (var ii in mObjects) {
-        if (mObjects[ii].hasOwnProperty('thetaVelocity')) {
-            if (KEY_STATUS.space) {
+        if (mObjects[ii].hasOwnProperty('thetaVelocity')) { //recognize its a bok
+            if (KEY_STATUS.space) { // check if right control is pres
                 mObjects[ii].update(CONSTANTS.timeStep);
             }
 
