@@ -55,7 +55,6 @@ function loop() {
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
     for (var ii in mObjects) {
-        console.log(mObjects[ii]);
         mObjects[ii].draw(ctx);
     }
 
@@ -82,5 +81,5 @@ function collide() {
 
 var CONSTANTS = {
     gravity: 10,
-    timeStep: 1 / 30,
+    timeStep: 1 / 30
 };

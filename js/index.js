@@ -49,6 +49,7 @@ function loop() {
     }
 
     var contacts = collide();
+    //console.log(contacts);
     solver(contacts);
 
     ctx.fillStyle = "#ffffff";

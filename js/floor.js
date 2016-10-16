@@ -36,19 +36,19 @@ Floor.prototype.draw = function (ctx) {
     ctx.restore();
 };
 
-Floor.prototype.getClosestPoints = function (rBody) {
+Floor.prototype.getClosestPoints = function (rigidBody) {
 
     var contacts = [];
 
-    if(rBody instanceof  Ball){
+    if(rigidBody instanceof  Ball){
         var rectangleA = this;
-        var ballB = rBody;
+        var ballB = rigidBody;
 
-        var xPos = ballB.pos.x - rectangleA.pos.x;
-        var yPos = ballB.pos.y - rectangleA.pos.y;
+        var xPosition = ballB.pos.x - rectangleA.pos.x;
+        var yPosition = ballB.pos.y - rectangleA.pos.y;
 
         var delta = new Vector2();
-        delta.set(xPos, yPos);
+        delta.set(xPosition, yPosition);
 
         this.matrix.set(this.theta, 0, 0);
         var rotatedDeltaX = delta.x*this.matrix.cos + delta.y*this.matrix.sin;
@@ -64,21 +64,24 @@ Floor.prototype.getClosestPoints = function (rBody) {
         var clamped = dClamped.rotate(this.theta);
         var clampedP = this.pos.copy().add(clamped);
 
+        var distance = new Vector2();
+        distance.set(ballB.pos.x - clampedP.x, ballB.pos.y - clampedP.y);
+
+        var normal = distance.getNormal();
         var pa = clampedP;
 
-        var d = new Vector2();
-        d.set(ballB.pos.x - clamped.x, ballB.pos.y - clamped.y);
 
-        var n = d.getNormal();
-        var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, n);
 
-        var dist = d.getLength() - ballB.radius;
+
+        var pb = ballB.pos.copy().subtractMultipledVector(ballB.radius, normal);
+
+        var distance_between_circle_and_obb = distance.getLength() - ballB.radius;
 
         this.clamedP = clampedP;
-        this.d = d;
+        this.d = distance;
         this.pb = pb;
 
-        contacts.push(new Contact(rectangleA, ballB, pa, pb, n, dist));
+        contacts.push(new Contact(rectangleA, ballB, pa, pb, normal, distance_between_circle_and_obb));
 
     }
 
