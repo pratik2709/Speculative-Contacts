@@ -17,6 +17,22 @@ Ball.prototype.update = function (dt) {
 
 };
 
+//CHECK
+Ball.prototype.draw = function (ctx) {
+
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
+    ctx.fill();
+
+
+    // random values presented here
+    // not analysing
+    if (this.pos.x > window.innerWidth + this.radius * 2 || this.pos.x < 0 - this.radius * 2 || this.pos.y + this.radius * 2 > window.innerHeight + this.rad * 2) {
+        this.reset();
+    }
+};
+
 //change and watch
 Ball.prototype.reset = function () {
     this.pos = new Vector2(window.innerWidth / 2 - 100 + 200 * Math.random(), -this.radius * 2 - 400 * Math.random());

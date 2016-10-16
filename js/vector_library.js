@@ -17,6 +17,8 @@ Vector2.prototype.subtract = function (vec) {
 Vector2.prototype.set = function (x, y) {
     this.x = x;
     this.y = y;
+
+    return this;
 };
 
 Vector2.prototype.subtractMultipledVector = function (value, vector) {

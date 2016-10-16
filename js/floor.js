@@ -60,6 +60,7 @@ Floor.prototype.getClosestPoints = function (rBody) {
         var dClamped = rotatedVector.clamp(this.halfExtendMinus, this.halfExtendPlus);
 
         //getting back to worldspace
+
         var clamped = dClamped.rotate(this.theta);
         var clampedP = this.pos.copy().add(clamped);
 
@@ -73,7 +74,7 @@ Floor.prototype.getClosestPoints = function (rBody) {
 
         var dist = d.getLength() - ballB.radius;
 
-        this.clamedP = clamedP;
+        this.clamedP = clampedP;
         this.d = d;
         this.pb = pb;
 
