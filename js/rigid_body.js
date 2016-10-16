@@ -2,10 +2,10 @@ var RigidBody = function(mass, width, height, pos, vel){
 
     this.mass = mass;
     if(this.mass == 0){
-        this.mass = 0;
+        this.invMass = 0;
     }
     else{
-        this.invMass = 1/this.mass;
+        this.invMass = 1/mass;
     }
 
     this.width = width;
