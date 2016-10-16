@@ -15,6 +15,8 @@ Ball.prototype.update = function (dt) {
         this.reset();
     }
 
+    //if(this.pos)
+
 };
 
 //CHECK

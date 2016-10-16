@@ -50,6 +50,9 @@ function loop() {
 
         }
         else {
+        //this for ball objects
+        // check if they are out of screen
+        // if yes push them inside
             mObjects[ii].update(CONSTANTS.timeStep);
         }
 
