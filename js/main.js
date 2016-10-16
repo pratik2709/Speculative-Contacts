@@ -2,17 +2,17 @@ var ctx;
 
 var mObjects = [];
 
-window.onload = function(){
+window.onload = function () {
     var canvas = document.getElementById('c');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     ctx = canvas.getContext('2d');
 
-    var wid = window.innerHeight/5;
+    var wid = window.innerHeight / 5;
     var hig = 30;
 
-    for(var ii=0; ii<60; ii++){
+    for (var ii = 0; ii < 60; ii++) {
         var ballRad = 5 + 20 * Math.random() | 0;
         var posX = window.innerWidth / 2 - wid * 2 + Math.random() * wid * 4;
         var posY = -400 * Math.random() - ballRad * 2;
@@ -21,8 +21,6 @@ window.onload = function(){
         mObjects.push(ball);
     }
 
-    var floor0 = new Floor(window.innerWidth / 2 - wid / 2, window.innerHeight / 5 * 1.5 - hig / 2 - 30, wid, hig);
-    floor0.setVelTheta(1 / 30 * Math.PI);
 
     var floor1 = new Floor(window.innerWidth / 2 - wid / 2 + wid, window.innerHeight / 5 * 2.5 - hig / 2, wid, hig);
     floor1.setVelTheta(-1 / 60 * Math.PI);
@@ -30,13 +28,13 @@ window.onload = function(){
     var floor3 = new Floor(window.innerWidth / 2 - wid / 2 - wid, window.innerHeight / 5 * 2.5 - hig / 2, wid, hig);
     floor3.setVelTheta(1 / 60 * Math.PI);
 
-    var floor2 = new Floor(window.innerWidth / 2 - wid / 2, window.innerHeight / 5 * 3. - hig / 2 + 30, wid, hig);
-    floor2.setVelTheta(1 / 30 * Math.PI);
+    //var floor2 = new Floor(window.innerWidth / 2 - wid / 2, window.innerHeight / 5 * 3. - hig / 2 + 30, wid, hig);
+    //floor2.setVelTheta(1 / 30 * Math.PI);
 
 
-    mObjects.push(floor0);
+    //mObjects.push(floor0);
     mObjects.push(floor1);
-    mObjects.push(floor2);
+    //mObjects.push(floor2);
     mObjects.push(floor3);
 
 
@@ -45,7 +43,16 @@ window.onload = function(){
 
 function loop() {
     for (var ii in mObjects) {
-        mObjects[ii].update(CONSTANTS.timeStep);
+        if (mObjects[ii].hasOwnProperty('thetaVelocity')) {
+            if (KEY_STATUS.space) {
+                mObjects[ii].update(CONSTANTS.timeStep);
+            }
+
+        }
+        else {
+            mObjects[ii].update(CONSTANTS.timeStep);
+        }
+
     }
 
     var contacts = collide();
