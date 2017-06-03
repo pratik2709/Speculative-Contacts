@@ -1,7 +1,7 @@
 # Speculative-Contacts
 
 ## Introduction
-This Repository is for mostly understanding and implementing speculative contacts collision detection technique.
+This repository is for mostly understanding and implementing speculative contacts collision detection technique.
 
 ## What is Speculative Contacts ?
 https://wildbunny.co.uk/blog/2011/03/25/speculative-contacts-an-continuous-collision-engine-approach-part-1/
