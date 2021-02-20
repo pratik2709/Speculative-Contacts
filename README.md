@@ -15,5 +15,6 @@ This code is based on the following sources:
 * http://www.wildbunny.co.uk/blog/2011/03/25/speculative-contacts-an-continuous-collision-engine-approach-part-1/ 
 
 * http://codepen.io/kenjiSpecial/pen/bNJQKQ
-* 
 
+## Quadtree implemntation (future addition): 
+https://github.com/pratik2709/Galaxian/blob/master/quadtree.js
